@@ -15,12 +15,19 @@ const handleClose = (key: string, keyPath: string[]) => {
 </script>
 <template>
   <el-container class="home">
-      <el-header><h1>Pnotes</h1></el-header>
+      <el-header>
+        <el-container>
+        <div style="text-align:center">
+          <el-button color="#95d475" circle="true" @click="isCollapse = !isCollapse" class="status">"  "</el-button>
+          </div>
+          <h1>Pnotes</h1>
+      </el-container>
+    </el-header>
       <el-container>
         <el-aside :width="isCollapse ? '64px' : '250px'">
-          <div style="text-align:center">
-          <el-button color="#95d475" circle="true"  @click="isCollapse = !isCollapse" class="status">!</el-button>
-          </div>
+          <!-- <div style="text-align:center">
+          <el-button color="#95d475" circle="true" @click="isCollapse = !isCollapse" class="status">"  "</el-button>
+          </div> -->
           <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
     <el-radio-button :label="false" >expand</el-radio-button>
     <el-radio-button :label="true">collapse</el-radio-button>
@@ -32,12 +39,15 @@ const handleClose = (key: string, keyPath: string[]) => {
     @open="handleOpen"
     @close="handleClose"
     router="true"
+    text-color="#95d475"
+    active-text-color="#ffd04b"
   >
     <el-sub-menu index="1">
       <template #title>
         <!-- <el-link type="success">马</el-link> -->
-        <RouterLink to="/about">马</RouterLink>
-        <span><RouterLink to="/about">克思主义基本原理</RouterLink></span>
+        <RouterLink to="/1">马</RouterLink>
+        <span><RouterLink to="/1">克思主义基本原理</RouterLink></span>
+        <!-- <span>克思主义基本原理</span> -->
       </template>
         <el-menu-item index="1-1">世界的物质性及发展规律</el-menu-item>
         <el-menu-item index="1-2">实践与认识及其发展规律</el-menu-item> 
@@ -82,21 +92,47 @@ const handleClose = (key: string, keyPath: string[]) => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  /* background-color:#cfd3dc ; */
+  height: 110vh;
+  background-color:#fdf6ec ;
+  /* background-image: url(./components/pexels-attila-szente-9512261.jpg);
+  background-repeat: round; */
 }
 
 .el-header{
-  background-color:#85ce61 ;
+  background-color:#000000 ;
+  color:snow;
+  font-family: Georgia;
+  font-style:oblique;
+  font-size:2em;
+  text-indent:0.5em
 }
 /* .el-main{
-  background-color:#CFD3DC ;
+  background-color:#FFFFFF ;
+  height: 100vh;
+  filter:alpha(Opacity=70);
+  -moz-opacity:0.7;
+  opacity:0.7;
 } */
 .el-aside{
-  background-color:#cfd3dc;
+  background-color:#000000;
   height: 100vh;
+  filter:alpha(Opacity=40);
+  -moz-opacity:0.4;
+  opacity:0.4;
+  /* background-image: url(./components/pexels-attila-szente-9512261.jpg);
+  background-size:500%; */
 }
 .el-menu{
   background-color:transparent !important;
 }
+/* routerlink默认颜色 */
+a{
+  text-decoration: none;
+  color: #95d475;
+}
+.router-link-active {
+  text-decoration: none;
+  color: #ffd04b;
+}
 </style>
+
